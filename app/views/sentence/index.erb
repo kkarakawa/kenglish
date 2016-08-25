@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h3>問題集：</h3>
+</div>
+<ul class="list-group">
+<% @questions.each do |q| %>
+  <a href="/sentence/<%= q[:id] %>" class="list-group-item"><%= q[:id] %>.<%= q[:content] %></a>
+<% end %>
+</ul>
