@@ -7,7 +7,7 @@ class TestController < ApplicationController
       ids = (1..Question.count).to_a.sample(params[:id].to_i)
       @questions = Question.where(id: ids)
     elsif params[:id] == "incorrect"
-      @questions = Question.order(incorrect: :desc).limit(params[:id].to_i)
+      @questions = Question.order(incorrect: :desc).limit(10)
     end
   end
 

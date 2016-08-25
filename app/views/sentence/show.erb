@@ -43,10 +43,7 @@
   <a href="/sentence/<%= @question[:id] - 1 %>" class="btn btn-block btn-default">前へ</a>
 <% end %>
 </div>
-<div class="col-xs-2 col-xs-offset-1">
-  <a href="/sentence" class="btn btn-block btn-default"><span class="glyphicon glyphicon-home"></span></a>
-</div>
-<div class="col-xs-4 col-xs-offset-1">
+<div class="col-xs-4 col-xs-offset-4">
 <% if @question[:id] < 50 %>
   <a href="/sentence/<%= @question[:id] + 1 %>" class="btn btn-block btn-info">次へ</a>
 <% end %>
