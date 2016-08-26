@@ -9,6 +9,9 @@
   </div>
   <div class="panel-body">
     <div class="input-group">
+      <span class="input-group-btn">
+        <button type="button" class="btn <%= cookies[:bookmark].split(",").include?(q[:id].to_s) ? "btn-warning" : "btn-default" %>" onclick="set_cookie(this, '<%= q[:id] %>');"><span class="glyphicon glyphicon-star"></span></button>
+      </span>
       <input type="text" class="form-control" id="<%= q[:id] %>" placeholder="回答">
       <span class="input-group-btn">
         <button type="button" class="btn btn-default" onclick="this.disabled=true;checkAnswer(<%= q[:id] %>);">回答</button>

@@ -1,4 +1,6 @@
 class TestController < ApplicationController
+  before_action :set_cookies
+
   def index
   end
 
@@ -8,6 +10,9 @@ class TestController < ApplicationController
       @questions = Question.where(id: ids)
     elsif params[:id] == "incorrect"
       @questions = Question.order(incorrect: :desc).limit(10)
+    elsif params[:id] == "bookmark"
+      @questions = Question.where(id: cookies[:bookmark].split(","))
+      @name = cookies[:bookmark].to_s
     end
   end
 
@@ -29,6 +34,10 @@ class TestController < ApplicationController
   end
 
   private
+
+  def set_cookies
+    cookies.permanent[:bookmark] = "" if cookies[:bookmark].nil?
+  end
 
   def convert_shorten(str)
     list = Settings.shorten

@@ -15,6 +15,7 @@
 </div>
 
 <div>
+  <button type="button" class="btn <%= cookies[:bookmark].split(",").include?(@question[:id].to_s) ? "btn-warning" : "btn-default" %>" onclick="set_cookie(this, '<%= @question[:id] %>');">チェック<span class="glyphicon glyphicon-star"></span></button>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">解説</button>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -44,7 +45,7 @@
 <% end %>
 </div>
 <div class="col-xs-4 col-xs-offset-4">
-<% if @question[:id] < 50 %>
+<% if @question[:id] < 55 %>
   <a href="/sentence/<%= @question[:id] + 1 %>" class="btn btn-block btn-info">次へ</a>
 <% end %>
 </div>

@@ -2,6 +2,18 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+@set_cookie = (e, id) ->
+  cookie = $.cookie("bookmark")
+  cookies = cookie.split(",")
+  cookies.shift() if cookies[0] == ""
+  idx = jQuery.inArray(id, cookies)
+  $(e).toggleClass("btn-default").toggleClass("btn-warning")
+  if $(e).hasClass("btn-default")
+    cookies.splice idx, 1 unless idx == -1
+  else
+    cookies.push id if idx == -1
+  $.cookie("bookmark", cookies, { expires: 7305, path: "/" })
+
 @checkAnswer = (id) ->
   $("#" + id).prop "disabled", true
   $.ajax(
